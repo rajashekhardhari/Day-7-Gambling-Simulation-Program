@@ -1,5 +1,7 @@
 package com.bridgelabz.gambling;
 
+import java.util.Random;
+
 public class GamblingSimulationProgram {
 
 	public static final int initial_Stake = 100;
@@ -8,8 +10,19 @@ public class GamblingSimulationProgram {
 	public static void main(String[] args) {
 		System.out.println("Welcome to the Gambling Simulation Program");
 
-		System.out.println("Initial Stake is " + initial_Stake + "$");
-		System.out.println("Stake Bet is " + stake_Bet + "$");
-	}
+		int totalStake = 0;
 
+		Random random = new Random();
+		int game = random.nextInt(2);
+		if (game == 1) {
+			totalStake = totalStake + stake_Bet;
+
+			System.out.println("Gambler won the bet and have total stake:" + totalStake);
+		} else {
+			totalStake = totalStake - stake_Bet;
+
+			System.out.println("Gambler lost the bet and have total stake:" + totalStake);
+		}
+
+	}
 }
